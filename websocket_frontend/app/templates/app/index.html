@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aarif</title>
+</head>
+<body>
+    <h1>Count Page</h1>
+
+    <script>
+        var ws=new WebSocket('ws://127.0.0.1:8000/ws/sc/')
+
+        ws.onopen=function(){
+            console.log('websocket connection open...')
+            ws.send('hi,message fro client...')
+        }
+
+        ws.onmessage=function(event){
+            console.log('message received from server',event)
+        }
+
+        ws.onerror=function(event){
+            console.log('websocke error occurred...',event)
+        }
+
+        ws.onclose=function(event){
+            console.log('websocke connection closed...',event)
+        }
+
+        // ws.addEventListener('open',(event)=>{
+        //     console.log('websocket connection open...',event)
+        //     ws.send('hi,message from client...')
+        // })
+
+        // ws.addEventListener('message',(event)=>{
+        //     console.log('message received from server...',event)
+        // })
+
+        // ws.addEventListener('error',(event)=>{
+        //     console.log('websocke error occurred...',event)
+        // })
+
+        // ws.addEventListener('close',(event)=>{
+        //     console.log('websocke connection closed...',event)
+        // })
+    </script>
+</body>
+</html>
